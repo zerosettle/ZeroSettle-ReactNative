@@ -1,4 +1,4 @@
-package zerosettlekit.example
+package zerosettle.example
 
 import android.app.Application
 import com.facebook.react.PackageList
