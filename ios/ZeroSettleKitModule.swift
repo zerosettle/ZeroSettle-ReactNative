@@ -3,6 +3,109 @@ import React
 import ZeroSettleKit
 import SwiftUI
 
+// MARK: - Checkout Header
+
+/// Header view for the CheckoutSheet, showing icon, product name,
+/// price comparison, and savings badge.
+private struct CheckoutSheetHeader: View {
+    let product: ZSProduct
+
+    private var isConsumable: Bool {
+        product.type == .consumable
+    }
+
+    var body: some View {
+        VStack(spacing: 10) {
+            icon
+                .padding(.top, 12)
+
+            Text(product.displayName)
+                .font(.title3.weight(.bold))
+
+            freeTrialBadge
+
+            priceRow
+
+            savingsBadge
+        }
+    }
+
+    // MARK: - Icon
+
+    @ViewBuilder
+    private var icon: some View {
+        if isConsumable {
+            Image(systemName: "shippingbox.fill")
+                .font(.system(size: 26))
+                .foregroundColor(.orange)
+                .frame(width: 52, height: 52)
+                .background(Color.orange.opacity(0.12), in: Circle())
+        } else {
+            Image(systemName: "crown.fill")
+                .font(.system(size: 26))
+                .foregroundStyle(.linearGradient(
+                    colors: [.purple, .blue],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ))
+                .frame(width: 52, height: 52)
+                .background(Color.purple.opacity(0.12), in: Circle())
+        }
+    }
+
+    // MARK: - Free Trial Badge
+
+    @ViewBuilder
+    private var freeTrialBadge: some View {
+        if let label = product.freeTrialLabel {
+            HStack(spacing: 4) {
+                Image(systemName: "gift.fill")
+                    .font(.caption2)
+                Text(label.capitalized)
+                    .font(.caption.weight(.semibold))
+            }
+            .foregroundColor(.green)
+        }
+    }
+
+    // MARK: - Price
+
+    @ViewBuilder
+    private var priceRow: some View {
+        HStack(spacing: 6) {
+            if let webPrice = product.webPrice {
+                Text(webPrice.formatted)
+                    .font(.headline)
+            }
+
+            if let appStorePrice = product.appStorePrice {
+                Text(appStorePrice.formatted)
+                    .font(.subheadline)
+                    .strikethrough()
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    // MARK: - Savings Badge
+
+    @ViewBuilder
+    private var savingsBadge: some View {
+        if let savings = product.savingsPercent {
+            HStack(spacing: 4) {
+                Image(systemName: "arrow.down.circle.fill")
+                    .font(.caption2)
+                Text("Save \(savings)%")
+                    .font(.caption.weight(.semibold))
+            }
+            .foregroundColor(.white)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(Color.green, in: Capsule())
+        }
+    }
+}
+
 // MARK: - ISO 8601 Formatter
 
 private let iso8601Formatter: ISO8601DateFormatter = {
@@ -160,6 +263,33 @@ class ZeroSettleKitModule: RCTEventEmitter {
         reject: @escaping RCTPromiseRejectBlock
     ) {
         Task { @MainActor in
+            // For webView checkout type, present CheckoutSheet from the root VC
+            // instead of calling purchase() which only handles Safari/SafariVC.
+            if ZeroSettle.shared.checkoutType == .webView,
+               let product = ZeroSettle.shared.product(for: productId),
+               let rootVC = UIApplication.shared.connectedScenes
+                   .compactMap({ $0 as? UIWindowScene })
+                   .flatMap(\.windows)
+                   .first(where: \.isKeyWindow)?
+                   .rootViewController {
+                let presentingVC = rootVC.presentedViewController ?? rootVC
+                CheckoutSheet<CheckoutSheetHeader>.present(
+                    from: presentingVC,
+                    product: product,
+                    userId: userId,
+                    header: { CheckoutSheetHeader(product: product) }
+                ) { result in
+                    switch result {
+                    case .success(let transaction):
+                        resolve(Self.transactionToMap(transaction))
+                    case .failure(let error):
+                        Self.rejectWithZSError(error, reject: reject)
+                    }
+                }
+                return
+            }
+
+            // Safari / SafariVC path
             do {
                 let transaction = try await ZeroSettle.shared.purchase(
                     productId: productId,
@@ -686,11 +816,11 @@ class ZeroSettleKitModule: RCTEventEmitter {
 
     // MARK: - Event Listener Stubs
 
-    @objc func addListener(_ eventName: String) {
+    @objc override func addListener(_ eventName: String) {
         // no-op, handled by RCTEventEmitter
     }
 
-    @objc func removeListeners(_ count: Double) {
+    @objc override func removeListeners(_ count: Double) {
         // no-op
     }
 

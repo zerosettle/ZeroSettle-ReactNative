@@ -53,7 +53,7 @@ export default function App() {
   });
 
   useEffect(() => {
-    ZeroSettleKit.configure({ publishableKey: 'zs_pk_test_xxx' });
+    ZeroSettleKit.configure({ publishableKey: 'zs_pk_test_c2f95d4995ab13385b6064d4af428eb7cc3d0218a9754b41' });
     ZeroSettleKit.bootstrap('user_123')
       .then((catalog) => {
         setProducts(catalog.products);

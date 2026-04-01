@@ -1,7 +1,7 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
 
-@interface RCT_EXTERN_MODULE(ZeroSettleKitModule, RCTEventEmitter)
+@interface RCT_EXTERN_REMAP_MODULE(ZeroSettleKit, ZeroSettleKitModule, RCTEventEmitter)
 
 // Configuration & Lifecycle
 RCT_EXTERN_METHOD(configure:(NSString *)publishableKey

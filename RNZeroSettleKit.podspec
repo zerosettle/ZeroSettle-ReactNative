@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   if defined?(:spm_dependency)
     spm_dependency(s,
       url: 'https://github.com/zerosettle/ZeroSettleKit.git',
-      requirement: { kind: 'upToNextMajorVersion', minimumVersion: '1.0.24' },
+      requirement: { kind: 'upToNextMajorVersion', minimumVersion: '1.0.31' },
       products: ['ZeroSettleKit']
     )
   end

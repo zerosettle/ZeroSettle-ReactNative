@@ -2,93 +2,12 @@
   "originHash" : "a47658087e2e5e6b3c641f3ead5c56fe15ca086206764434a34a347034ee2c54",
   "pins" : [
     {
-      "identity" : "beet-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/metaplex-foundation/beet-swift.git",
-      "state" : {
-        "revision" : "e4708bf28b55ce42727006c1cb7882f069d07bd8",
-        "version" : "1.0.7"
-      }
-    },
-    {
-      "identity" : "metamask-ios-sdk",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/MetaMask/metamask-ios-sdk",
-      "state" : {
-        "revision" : "924d91bb3e98a5383c3082d6d5ba3ddac9e1c565",
-        "version" : "0.8.10"
-      }
-    },
-    {
-      "identity" : "privy-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/privy-io/privy-ios.git",
-      "state" : {
-        "revision" : "dbb81a5b7dd4a6d8b489fc8307f3c10469ae6451",
-        "version" : "2.10.0"
-      }
-    },
-    {
-      "identity" : "secp256k1.swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Boilertalk/secp256k1.swift.git",
-      "state" : {
-        "revision" : "cd187c632fb812fd93711a9f7e644adb7e5f97f0",
-        "version" : "0.1.7"
-      }
-    },
-    {
-      "identity" : "socket.io-client-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/socketio/socket.io-client-swift",
-      "state" : {
-        "revision" : "42da871d9369f290d6ec4930636c40672143905b",
-        "version" : "16.1.1"
-      }
-    },
-    {
-      "identity" : "solana.swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/metaplex-foundation/Solana.Swift",
-      "state" : {
-        "revision" : "f7bd54eee1ccf31f717b1a98b64b9ae12413e66d",
-        "version" : "2.0.2"
-      }
-    },
-    {
-      "identity" : "starscream",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/daltoniam/Starscream",
-      "state" : {
-        "revision" : "c6bfd1af48efcc9a9ad203665db12375ba6b145a",
-        "version" : "4.0.8"
-      }
-    },
-    {
-      "identity" : "tweetnacl-swiftwrap",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/bitmark-inc/tweetnacl-swiftwrap.git",
-      "state" : {
-        "revision" : "f8fd111642bf2336b11ef9ea828510693106e954",
-        "version" : "1.1.0"
-      }
-    },
-    {
-      "identity" : "wallet-mobile-sdk",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/MobileWalletProtocol/wallet-mobile-sdk.git",
-      "state" : {
-        "revision" : "4293df51d3500b8e876ca4bf0d7548adf097569a",
-        "version" : "1.1.2"
-      }
-    },
-    {
       "identity" : "zerosettlekit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/zerosettle/ZeroSettleKit.git",
       "state" : {
-        "revision" : "eb2c849db861b1ba35460f58791f51b3477f2ff1",
-        "version" : "1.1.2"
+        "revision" : "6d93c686664a4aa121c4545c77418260f71ddbec",
+        "version" : "1.0.31"
       }
     }
   ],

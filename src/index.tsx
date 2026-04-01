@@ -72,6 +72,3 @@ export type { ZeroSettleEventHandlers } from './useZeroSettleEvents';
 // View Components
 export { ZSMigrateTipView } from './ZSMigrateTipView';
 export type { ZSMigrateTipViewProps } from './ZSMigrateTipView';
-
-// Fabric component (for new architecture users)
-export { default as ZerosettleKitView } from './ZerosettleKitViewNativeComponent';

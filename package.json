@@ -111,13 +111,7 @@
     "android": {
       "javaPackageName": "com.zerosettlekit"
     },
-    "ios": {
-      "components": {
-        "ZerosettleKitView": {
-          "className": "ZerosettleKitView"
-        }
-      }
-    }
+    "ios": {}
   },
   "prettier": {
     "quoteProps": "consistent",

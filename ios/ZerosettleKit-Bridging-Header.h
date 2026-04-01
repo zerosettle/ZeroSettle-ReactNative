@@ -1,5 +1,5 @@
 //
-//  ZerosettleKit-Bridging-Header.h
+//  ZeroSettleKit-Bridging-Header.h
 //  react-native-zerosettle-kit
 //
 //  Bridging header for Swift/ObjC interop
