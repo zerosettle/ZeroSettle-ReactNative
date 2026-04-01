@@ -23,8 +23,14 @@ Pod::Spec.new do |s|
   # Required frameworks
   s.frameworks = "UIKit", "SwiftUI"
 
-  # Depend on ZeroSettleKit CocoaPod
-  s.dependency "ZeroSettleKit", "~> 1.0.24"
+  # ZeroSettleKit via Swift Package Manager
+  if defined?(:spm_dependency)
+    spm_dependency(s,
+      url: 'https://github.com/zerosettle/ZeroSettleKit.git',
+      requirement: { kind: 'upToNextMajorVersion', minimumVersion: '1.0.24' },
+      products: ['ZeroSettleKit']
+    )
+  end
 
   install_modules_dependencies(s)
 end
