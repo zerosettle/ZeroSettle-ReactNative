@@ -46,6 +46,15 @@ Breaking changes (require explicit approval):
 * Removing fields that clients depend on
 * Changing default values in ways that alter existing behavior
 
+## Release Propagation
+This repo must be updated whenever a new `ZeroSettleKit` tag is pushed:
+1. Bump `RNZeroSettleKit.podspec` → SPM `minimumVersion` to the new tag
+2. Update `ios/ZeroSettleKitModule.swift` bridge code if the public API changed
+3. Update TypeScript types and JS-side models to match
+4. Bump `package.json` → `version` and `RNZeroSettleKit.podspec` → `s.version`
+5. Commit, tag, and push
+6. Update docs at `/Users/ryanelliott/dev/docs/iap/installation.mdx`
+
 ## Coding Standards
 * Neutral language: "External Purchase," "Web Checkout" — never "bypass" or "evade"
 * `ZeroSettle.shared` is `@MainActor`-isolated — bridge methods must dispatch to main actor
