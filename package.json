@@ -1,5 +1,5 @@
 {
-  "name": "react-native-zerosettle-kit",
+  "name": "react-native-zerosettle",
   "version": "1.0.0",
   "description": "React Native bridge for ZeroSettleKit iOS SDK",
   "main": "./lib/module/index.js",
@@ -32,7 +32,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-zerosettle-kit-example",
+    "example": "yarn workspace react-native-zerosettle-example",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
     "typecheck": "tsc",

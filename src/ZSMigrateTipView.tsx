@@ -51,7 +51,7 @@ const NativeZSMigrateTipView =
  *
  * @example
  * ```tsx
- * import { ZSMigrateTipView } from 'react-native-zerosettle-kit';
+ * import { ZSMigrateTipView } from 'react-native-zerosettle';
  *
  * function MyComponent() {
  *   return (

@@ -40,7 +40,7 @@ export interface ZeroSettleConfiguration {
  *
  * @example
  * ```ts
- * import { ZeroSettleKit } from 'react-native-zerosettle-kit';
+ * import { ZeroSettleKit } from 'react-native-zerosettle';
  *
  * ZeroSettleKit.configure({ publishableKey: 'zs_pk_live_...' });
  * const catalog = await ZeroSettleKit.bootstrap('user_123');
@@ -593,7 +593,7 @@ class ZeroSettleKitClass {
  *
  * @example
  * ```ts
- * import { ZeroSettleKit } from 'react-native-zerosettle-kit';
+ * import { ZeroSettleKit } from 'react-native-zerosettle';
  *
  * ZeroSettleKit.configure({ publishableKey: 'zs_pk_live_...' });
  * ```

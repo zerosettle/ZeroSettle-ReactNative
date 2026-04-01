@@ -1,7 +1,7 @@
 # CLAUDE.md - React Native ZeroSettle Kit
 
 ## Overview
-`react-native-zerosettle-kit` is the React Native wrapper around the native `ZeroSettleKit` iOS SDK. It uses React Native's TurboModule/Bridge architecture to expose the SDK to JavaScript.
+`react-native-zerosettle` is the React Native wrapper around the native `ZeroSettleKit` iOS SDK. It uses React Native's TurboModule/Bridge architecture to expose the SDK to JavaScript.
 
 ## Key Files
 * `ios/ZeroSettleKitModule.swift` — Unified Swift TurboModule bridge (all methods)

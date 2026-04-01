@@ -1,4 +1,4 @@
-# react-native-zerosettle-kit
+# react-native-zerosettle
 
 React Native bridge for the [ZeroSettleKit](https://github.com/ZeroSettle/ZeroSettleKit) iOS SDK. This package exposes the `ZSMigrateTipView` SwiftUI component as a React Native view.
 
@@ -11,9 +11,9 @@ React Native bridge for the [ZeroSettleKit](https://github.com/ZeroSettle/ZeroSe
 ## Installation
 
 ```bash
-npm install react-native-zerosettle-kit
+npm install react-native-zerosettle
 # or
-yarn add react-native-zerosettle-kit
+yarn add react-native-zerosettle
 ```
 
 ### iOS Setup
@@ -35,7 +35,7 @@ That's it! The package automatically pulls in `ZeroSettleKit` from CocoaPods.
 ## Usage
 
 ```tsx
-import { ZSMigrateTipView } from 'react-native-zerosettle-kit';
+import { ZSMigrateTipView } from 'react-native-zerosettle';
 
 function MyScreen() {
   return (

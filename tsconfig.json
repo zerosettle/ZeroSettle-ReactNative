@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-zerosettle-kit": ["./src/index"]
+      "react-native-zerosettle": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

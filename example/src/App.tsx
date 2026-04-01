@@ -12,11 +12,11 @@ import {
   ZeroSettleKit,
   useZeroSettleEvents,
   ZSMigrateTipView,
-} from 'react-native-zerosettle-kit';
+} from 'react-native-zerosettle';
 import type {
   ZSProduct,
   Entitlement,
-} from 'react-native-zerosettle-kit';
+} from 'react-native-zerosettle';
 
 export default function App() {
   const [products, setProducts] = useState<ZSProduct[]>([]);
