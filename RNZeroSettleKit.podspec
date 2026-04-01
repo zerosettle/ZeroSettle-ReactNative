@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   # iOS 17.0+ required for ZeroSettleKit's SwiftUI features
   s.platforms    = { :ios => "17.0" }
-  s.source       = { :git => "https://github.com/ZeroSettle/react-native-zerosettle-kit.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/ZeroSettle/ZeroSettle-ReactNative.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm,swift,cpp}"
   s.private_header_files = "ios/**/*.h"

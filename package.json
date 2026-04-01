@@ -49,14 +49,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZeroSettle/react-native-zerosettle-kit.git"
+    "url": "git+https://github.com/ZeroSettle/ZeroSettle-ReactNative.git"
   },
   "author": "ZeroSettle <gabe@zerosettle.com> (https://zerosettle.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ZeroSettle/react-native-zerosettle-kit/issues"
+    "url": "https://github.com/ZeroSettle/ZeroSettle-ReactNative/issues"
   },
-  "homepage": "https://github.com/ZeroSettle/react-native-zerosettle-kit#readme",
+  "homepage": "https://github.com/ZeroSettle/ZeroSettle-ReactNative#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
