@@ -1,5 +1,6 @@
 import type { TurboModule } from 'react-native';
 import { TurboModuleRegistry } from 'react-native';
+import type { UnsafeObject } from 'react-native/Libraries/Types/CodegenTypes';
 
 export interface Spec extends TurboModule {
   // Configuration & Lifecycle
@@ -14,51 +15,45 @@ export interface Spec extends TurboModule {
     userId: string,
     name: string | null,
     email: string | null
-  ): Promise<Object>;
+  ): Promise<UnsafeObject>;
   logout(): void;
   setCustomer(name: string | null, email: string | null): void;
-  getIsConfigured(
-    resolve: (value: boolean) => void,
-    reject: (error: any) => void
-  ): void;
-  getIsBootstrapped(
-    resolve: (value: boolean) => void,
-    reject: (error: any) => void
-  ): void;
+  getIsConfigured(): Promise<boolean>;
+  getIsBootstrapped(): Promise<boolean>;
 
   // Products
-  fetchProducts(userId: string | null): Promise<Object>;
-  getProducts(): Promise<Object[]>;
-  getProduct(productId: string): Promise<Object | null>;
+  fetchProducts(userId: string | null): Promise<UnsafeObject>;
+  getProducts(): Promise<UnsafeObject[]>;
+  getProduct(productId: string): Promise<UnsafeObject | null>;
 
   // Checkout
-  purchase(productId: string, userId: string | null): Promise<Object>;
+  purchase(productId: string, userId: string | null): Promise<UnsafeObject>;
   handleUniversalLink(url: string): Promise<boolean>;
   getPendingCheckout(): Promise<boolean>;
   warmUp(productId: string, userId: string | null): Promise<void>;
   warmUpAll(userId: string | null): Promise<void>;
 
   // Entitlements
-  restoreEntitlements(userId: string): Promise<Object[]>;
-  getEntitlements(): Promise<Object[]>;
-  getActiveEntitlements(): Promise<Object[]>;
+  restoreEntitlements(userId: string): Promise<UnsafeObject[]>;
+  getEntitlements(): Promise<UnsafeObject[]>;
+  getActiveEntitlements(): Promise<UnsafeObject[]>;
   hasActiveEntitlement(productId: string): Promise<boolean>;
 
   // Transactions
-  fetchTransactionHistory(userId: string): Promise<Object[]>;
+  fetchTransactionHistory(userId: string): Promise<UnsafeObject[]>;
 
   // Cancel Flow
   presentCancelFlow(
     productId: string,
     userId: string
   ): Promise<string>;
-  fetchCancelFlowConfig(userId: string | null): Promise<Object>;
-  getCancelFlowConfig(): Promise<Object | null>;
+  fetchCancelFlowConfig(userId: string | null): Promise<UnsafeObject>;
+  getCancelFlowConfig(): Promise<UnsafeObject | null>;
   acceptSaveOffer(
     productId: string,
     userId: string
-  ): Promise<Object>;
-  submitCancelFlowResponse(response: Object): Promise<void>;
+  ): Promise<UnsafeObject>;
+  submitCancelFlowResponse(response: UnsafeObject): Promise<void>;
   pauseSubscription(
     productId: string,
     userId: string,
@@ -79,13 +74,13 @@ export interface Spec extends TurboModule {
   fetchUpgradeOfferConfig(
     productId: string | null,
     userId: string
-  ): Promise<Object>;
+  ): Promise<UnsafeObject>;
 
   // Migration
   getMigrationManager(
     userId: string,
     stripeCustomerId: string | null
-  ): Promise<Object>;
+  ): Promise<UnsafeObject>;
   trackMigrationConversion(userId: string): Promise<void>;
   resetMigrateTipState(): void;
   presentMigrateTip(backgroundColorHex: string, userId: string): void;
@@ -100,7 +95,7 @@ export interface Spec extends TurboModule {
     eventType: string,
     productId: string,
     screenName: string | null,
-    metadata: Object | null
+    metadata: UnsafeObject | null
   ): void;
 
   // Events
